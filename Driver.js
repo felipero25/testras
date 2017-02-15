@@ -30,6 +30,7 @@ Driver.prototype.open = function(callback) {
     
     // open serial communication
     this._serialPort.on("open", function(err) {
+    	console.log(err);
 	if (err) callback(err);
 	async.eachSeries([1, 2], this._SetCommunicationTimeout.bind(this), function(err) {
 	    callback(err);
